@@ -1,0 +1,9 @@
+the-pool-of-tears
+premier-travail-avec-les-donnees
+regrouper-les-commandes-dans-des-scripts
+ajouter-des-commentaires
+tableaux-de-données
+inspection-visuelle-des-données
+accéder-aux-variables
+la-fonction-str
+quelques-calculs-simples

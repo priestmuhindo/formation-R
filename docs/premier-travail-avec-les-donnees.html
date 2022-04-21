@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 PREMIER TRAVAIL AVEC LES DONNEES | Cours d’Analyse de Données avec R</title>
+  <meta name="description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 PREMIER TRAVAIL AVEC LES DONNEES | Cours d’Analyse de Données avec R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  <meta name="github-repo" content="priestmuhindo/formation-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 PREMIER TRAVAIL AVEC LES DONNEES | Cours d’Analyse de Données avec R" />
+  
+  <meta name="twitter:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  
+
+<meta name="author" content="Priestley" />
+
+
+<meta name="date" content="2022-04-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-pool-of-tears.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analyse de Données avec R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>1</b> The pool of tears<span></span></a></li>
+<li class="chapter" data-level="2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html"><i class="fa fa-check"></i><b>2</b> PREMIER TRAVAIL AVEC LES DONNEES<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#regrouper-les-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.1</b> Regrouper les commandes dans des scripts<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#ajouter-des-commentaires"><i class="fa fa-check"></i><b>2.1.1</b> Ajouter des commentaires<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#tableaux-de-données"><i class="fa fa-check"></i><b>2.2</b> Tableaux de données<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#inspection-visuelle-des-données"><i class="fa fa-check"></i><b>2.2.1</b> Inspection visuelle des données<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#accéder-aux-variables"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#la-fonction-str"><i class="fa fa-check"></i><b>2.2.3</b> La fonction <strong>str</strong><span></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#quelques-calculs-simples"><i class="fa fa-check"></i><b>2.2.4</b> Quelques calculs simples<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="references.html#references">References<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cours d’Analyse de Données avec R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="premier-travail-avec-les-donnees" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> PREMIER TRAVAIL AVEC LES DONNEES<a href="premier-travail-avec-les-donnees.html#premier-travail-avec-les-donnees" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="regrouper-les-commandes-dans-des-scripts" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Regrouper les commandes dans des scripts<a href="premier-travail-avec-les-donnees.html#regrouper-les-commandes-dans-des-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Jusqu’à maintenant nous avons utilisé uniquement la console pour communiquer avec R via l’invite de commandes. Le principal problème de ce mode d’interaction est qu’une fois qu’une commande est tapée, elle est pour ainsi dire « perdue », c’est-à-dire qu’on doit la saisir à nouveau si on veut l’exécuter une seconde fois. L’utilisation de la console est donc restreinte aux petites commandes « jetables », le plus souvent utilisées comme test.</p>
+<p>La plupart du temps, les commandes seront stockées dans un fichier à part, que l’on pourra facilement ouvrir, éditer et exécuter en tout ou partie si besoin. On appelle en général ce type de fichier un script.</p>
+<p>Pour comprendre comment cela fonctionne, dans RStudio cliquez sur l’icône en haut à gauche représentant un fichier avec un signe plus vert, puis choisissez R script.</p>
+<p><img src="images/script.PNG" width="100%" /></p>
+<p>Un nouvel onglet apparaît dans le quadrant supérieur gauche.</p>
+<p><img src="images/espace_script.PNG" width="100%" /></p>
+<p>Nous pouvons désormais y saisir des commandes. Par exemple, tapez sur la première ligne la commande suivante : 2 + 2. Ensuite, cliquez sur l’icône Run (en haut à droite de l’onglet du script) ou bien pressez simulatément les touches CTRL et Entrée.</p>
+<p>Les lignes suivantes ont dû faire leur apparition dans la console :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="premier-travail-avec-les-donnees.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Voici donc comment soumettre rapidement à R les commandes saisies dans votre fichier. Vous pouvez désormais l’enregistrer, l’ouvrir plus tard, et en exécuter tout ou partie. À noter que vous avez plusieurs possibilités pour soumettre des commandes à R :</p>
+<p>vous pouvez exécuter la ligne sur laquelle se trouve votre curseur en cliquant sur Run ou en pressant simulatément les touches CTRL et Entrée ; vous pouvez sélectionner plusieurs lignes contenant des commandes et les exécuter toutes en une seule fois exactement de la même manière ; vous pouvez exécuter d’un coup l’intégralité de votre fichier en cliquant sur l’icône Source. La plupart du travail sous R consistera donc à éditer un ou plusieurs fichiers de commandes et à envoyer régulièrement les commandes saisies à R en utilisant les raccourcis clavier ad hoc.</p>
+<div id="ajouter-des-commentaires" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Ajouter des commentaires<a href="premier-travail-avec-les-donnees.html#ajouter-des-commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un commentaire est une ligne ou une portion de ligne qui sera ignorée par R. Ceci signifie qu’on peut y écrire ce qu’on veut et qu’on va les utiliser pour ajouter tout un tas de commentaires à notre code permettant de décrire les différentes étapes du travail, les choses à se rappeler, les questions en suspens, etc.</p>
+<p>Un commentaire sous R commence par un ou plusieurs symboles # (qui s’obtient avec les touches Alt Gr et 3 sur les claviers de type PC). Tout ce qui suit ce symbole jusqu’à la fin de la ligne est considéré comme un commentaire. On peut créer une ligne entière de commentaire en la faisant débuter par ##. Par exemple :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="premier-travail-avec-les-donnees.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Tableau croisé de la CSP par le nombre de livres lus.</span></span>
+<span id="cb3-2"><a href="premier-travail-avec-les-donnees.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Attention au nombre de non réponses !</span></span></code></pre></div>
+<p>On peut aussi créer des commentaires pour une ligne en cours :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="premier-travail-avec-les-donnees.html#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># On met 2 dans x, parce qu&#39;il le vaut bien</span></span></code></pre></div>
+<p><strong>NB</strong>:<em>Dans tous les cas, il est très important de documenter ses fichiers R au fur et à mesure, faute de quoi on risque de ne plus y comprendre grand chose si on les reprend ne serait-ce que quelques semaines plus tard.</em></p>
+<p>Avec RStudio, vous pouvez également utiliser les commentaires pour créer des sections au sein de votre script et naviguer plus rapidement. Il suffit de faire suivre une ligne de commentaires d’au moins 4 signes moins (—-). Par exemple, si vous saisissez ceci dans votre script :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="premier-travail-avec-les-donnees.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Créer les objets ----</span></span>
+<span id="cb5-2"><a href="premier-travail-avec-les-donnees.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="premier-travail-avec-les-donnees.html#cb5-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb5-4"><a href="premier-travail-avec-les-donnees.html#cb5-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb5-5"><a href="premier-travail-avec-les-donnees.html#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="premier-travail-avec-les-donnees.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculs ----</span></span>
+<span id="cb5-7"><a href="premier-travail-avec-les-donnees.html#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="premier-travail-avec-les-donnees.html#cb5-8" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>Vous verrez apparaître en bas à gauche de la fenêtre du script un symbole dièse orange. Si vous cliquez dessus, un menu de navigation s’affichera vous permettant de vous déplacez rapidement au sein de votre script.</p>
+<p><img src="images/script_section.PNG" width="100%" /></p>
+<p><strong>Note</strong> : on remarquera au passage que le titre de l’onglet est affiché en rouge et suivi d’une astérisque (*), nous indiquant ainsi qu’il y a des modifications non enregistrées dans notre
+fichier</p>
+</div>
+</div>
+<div id="tableaux-de-données" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Tableaux de données<a href="premier-travail-avec-les-donnees.html#tableaux-de-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans cette partie nous allons utiliser un jeu de données inclus dans l’extension questionr. L’installation d’extension est décrite dans le chapitre Extensions.
+Le jeu de données en question est un extrait de l’enquête Histoire de vie réalisée par l’INSEE en 2003. Il contient 2000 individus et 20 variables. Pour pouvoir utiliser ces données, il faut d’abord charger l’extension questionr (après l’avoir installée, bien entendu). Le chargement d’une extension en mémoire se fait à l’aide de la fonction library. Sous RStudio, vous pouvez également charger une extension en allant dans l’onglet Packages du quadrant inférieur droit qui liste l’ensemble des packages disponibles et en cliquant la case à cocher située à gauche du nom du package désiré.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="premier-travail-avec-les-donnees.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span></code></pre></div>
+<p>Puis nous allons indiquer à R que nous souhaitons accéder au jeu de données hdv2003 à l’aide de la fonction data :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="premier-travail-avec-les-donnees.html#cb8-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data</span>(hdv2003)</span></code></pre></div>
+<p>Bien. Et maintenant, elles sont où mes données ? Et bien elles se trouvent dans un objet nommé hdv2003 désormais chargé en mémoire et accessible directement. D’ailleurs, cet objet est maintenant visible dans l’onglet Environment du quadrant supérieur droit.</p>
+<p>Essayons de taper son nom à l’invite de commande :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="premier-travail-avec-les-donnees.html#cb9-1" aria-hidden="true" tabindex="-1"></a>hdv2003</span></code></pre></div>
+<p>Le résultat (non reproduit ici) ne ressemble pas forcément à grand-chose… Il faut se rappeler que par défaut, lorsqu’on lui fournit seulement un nom d’objet, R essaye de l’afficher de la manière la meilleure (ou la moins pire) possible. La réponse à la commande hdv2003 n’est donc rien moins que l’affichage des données brutes contenues dans cet objet.</p>
+<p>Ce qui signifie donc que l’intégralité de notre jeu de données est inclus dans l’objet nommé hdv2003 ! En effet, dans R, un objet peut très bien contenir un simple nombre, un vecteur ou bien le résultat d’une enquête tout entier. Dans ce cas, les objets sont appelés des data frames, ou tableaux de données. Ils peuvent être manipulés comme tout autre objet. Par exemple :</p>
+<p>Résumons</p>
+<p>Comme nous avons désormais décidé de saisir nos commandes dans un script et non plus directement dans la console, les premières lignes de notre fichier de travail sur les données de l’enquête Histoire de vie pourraient donc ressembler à ceci :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="premier-travail-avec-les-donnees.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Chargement des extensions nécessaires ----</span></span>
+<span id="cb10-2"><a href="premier-travail-avec-les-donnees.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb10-3"><a href="premier-travail-avec-les-donnees.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Jeu de données hdv2003 ----</span></span>
+<span id="cb10-4"><a href="premier-travail-avec-les-donnees.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(hdv2003)</span>
+<span id="cb10-5"><a href="premier-travail-avec-les-donnees.html#cb10-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> hdv2003</span></code></pre></div>
+<div id="inspection-visuelle-des-données" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Inspection visuelle des données<a href="premier-travail-avec-les-donnees.html#inspection-visuelle-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La particularité de R par rapport à d’autres logiciels comme <strong>Modalisa ou SPSS</strong> est de ne pas proposer, par défaut, de vue des données sous forme de tableau. Ceci peut parfois être un peu déstabilisant dans les premiers temps d’utilisation, même si l’on perd vite l’habitude et qu’on finit par se rendre compte que « voir » les données n’est pas forcément un gage de productivité ou de rigueur dans le traitement.</p>
+<p>Néanmoins, R propose une interface permettant de visualiser le contenu d’un tableau de données à l’aide de la fonction <strong>View</strong> :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="premier-travail-avec-les-donnees.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(d)</span></code></pre></div>
+<p>Sous RStudio, on peut aussi afficher la visionneusee (viewer) en cliquant sur la petite icône en forme de tableau située à droite de la ligne d’un tableau de données dans l’onglet Environment du quadrant supérieur droit (cf. figure ci-après).</p>
+<p><img src="images/visionneuse.PNG" width="100%" />
+Dans tous les cas, RStudio lancera le viewer dans un onglet dédié dans le quadrant supérieur gauche. Le visualiseur de RStudio est plus avancé que celui-de base fournit par R. Il est possible de trier les données selon une variable en cliquant sur le nom de cette dernière. Il y a également un champs de recherche et un bouton Filter donnant accès à des options de filtrage avancées.</p>
+<p><img src="images/viewer_pane.PNG" width="100%" />
+### Structure du tableau</p>
+<p>Avant de travailler sur les données, nous allons essayer de comprendre comment elles sont structurées. Lors de l’import de données depuis un autre logiciel (que nous aborderons dans un autre chapitre), il s’agira souvent de vérifier que l’importation s’est bien déroulée.</p>
+<p>Nous avons déjà vu qu’un tableau de données est organisé en lignes et en colonnes, les lignes correspondant aux observations et les colonnes aux variables. Les fonctions nrow, ncol et dim donnent respectivement le nombre de lignes, le nombre de colonnes et les dimensions de notre tableau. Nous pouvons donc d’ores et déjà vérifier que nnombre des lignes</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="premier-travail-avec-les-donnees.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(d)<span class="co">#Nombre de lignes:</span></span></code></pre></div>
+<pre><code>## [1] 2000</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="premier-travail-avec-les-donnees.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(d)<span class="co">#nombre de colonnes :</span></span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="premier-travail-avec-les-donnees.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(d)<span class="co"># lignes x colonnes</span></span></code></pre></div>
+<pre><code>## [1] 2000   20</code></pre>
+<p>La fonction <strong>names</strong> donne les noms des colonnes de notre tableau, c’est-à-dire les noms des variables :</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="premier-travail-avec-les-donnees.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d)</span></code></pre></div>
+<pre><code>##  [1] &quot;id&quot;            &quot;age&quot;           &quot;sexe&quot;          &quot;nivetud&quot;      
+##  [5] &quot;poids&quot;         &quot;occup&quot;         &quot;qualif&quot;        &quot;freres.soeurs&quot;
+##  [9] &quot;clso&quot;          &quot;relig&quot;         &quot;trav.imp&quot;      &quot;trav.satisf&quot;  
+## [13] &quot;hard.rock&quot;     &quot;lecture.bd&quot;    &quot;peche.chasse&quot;  &quot;cuisine&quot;      
+## [17] &quot;bricol&quot;        &quot;cinema&quot;        &quot;sport&quot;         &quot;heures.tv&quot;</code></pre>
+</div>
+<div id="accéder-aux-variables" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Accéder aux variables<a href="premier-travail-avec-les-donnees.html#accéder-aux-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>d représente donc l’ensemble de notre tableau de données. Nous avons vu que si l’on saisit simplement d à l’invite de commandes, on obtient un affichage du tableau en question. Mais comment accéder aux variables, c’est à dire aux colonnes de notre tableau ?
+La réponse est simple : on utilise le nom de l’objet, suivi de l’opérateur $, suivi du nom de la variable, comme ceci :</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="premier-travail-avec-les-donnees.html#cb20-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>sexe</span></code></pre></div>
+<p>Au regard du résultat (non reproduit ici), on constate alors que R a bien accédé au contenu de notre variable sexe du tableau d et a affiché son contenu, c’est-à-dire l’ensemble des valeurs prises par la variable.</p>
+<p>Les fonctions head et tail permettent d’afficher seulement les premières (respectivement les dernières) valeurs prises par la variable. On peut leur passer en argument le nombre d’éléments à afficher :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="premier-travail-avec-les-donnees.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d<span class="sc">$</span>nivetud)<span class="co"># 6 premierès observations</span></span></code></pre></div>
+<pre><code>## [1] Enseignement superieur y compris technique superieur
+## [2] &lt;NA&gt;                                                
+## [3] Derniere annee d&#39;etudes primaires                   
+## [4] Enseignement superieur y compris technique superieur
+## [5] Derniere annee d&#39;etudes primaires                   
+## [6] Enseignement technique ou professionnel court       
+## 8 Levels: N&#39;a jamais fait d&#39;etudes ...</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="premier-travail-avec-les-donnees.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(d<span class="sc">$</span>age, <span class="dv">10</span>)<span class="co">#10 dernières observations </span></span></code></pre></div>
+<pre><code>##  [1] 52 42 50 41 46 45 46 24 24 66</code></pre>
+<p>À noter que ces fonctions marchent aussi pour afficher les lignes du tableau d :</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="premier-travail-avec-les-donnees.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##   id age  sexe                                              nivetud    poids
+## 1  1  28 Femme Enseignement superieur y compris technique superieur 2634.398
+## 2  2  23 Femme                                                 &lt;NA&gt; 9738.396
+##                   occup  qualif freres.soeurs clso                       relig
+## 1 Exerce une profession Employe             8  Oui Ni croyance ni appartenance
+## 2       Etudiant, eleve    &lt;NA&gt;             2  Oui Ni croyance ni appartenance
+##        trav.imp    trav.satisf hard.rock lecture.bd peche.chasse cuisine bricol
+## 1 Peu important Insatisfaction       Non        Non          Non     Oui    Non
+## 2          &lt;NA&gt;           &lt;NA&gt;       Non        Non          Non     Non    Non
+##   cinema sport heures.tv
+## 1    Non   Non         0
+## 2    Oui   Oui         1</code></pre>
+</div>
+<div id="la-fonction-str" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> La fonction <strong>str</strong><a href="premier-travail-avec-les-donnees.html#la-fonction-str" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La fonction str est plus complète que names. Elle liste les différentes variables, indique leur type et donne le cas échéant des informations supplémentaires ainsi qu’un échantillon des premières valeurs prises par cette variable :</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="premier-travail-avec-les-donnees.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    2000 obs. of  20 variables:
+##  $ id           : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ age          : int  28 23 59 34 71 35 60 47 20 28 ...
+##  $ sexe         : Factor w/ 2 levels &quot;Homme&quot;,&quot;Femme&quot;: 2 2 1 1 2 2 2 1 2 1 ...
+##  $ nivetud      : Factor w/ 8 levels &quot;N&#39;a jamais fait d&#39;etudes&quot;,..: 8 NA 3 8 3 6 3 6 NA 7 ...
+##  $ poids        : num  2634 9738 3994 5732 4329 ...
+##  $ occup        : Factor w/ 7 levels &quot;Exerce une profession&quot;,..: 1 3 1 1 4 1 6 1 3 1 ...
+##  $ qualif       : Factor w/ 7 levels &quot;Ouvrier specialise&quot;,..: 6 NA 3 3 6 6 2 2 NA 7 ...
+##  $ freres.soeurs: int  8 2 2 1 0 5 1 5 4 2 ...
+##  $ clso         : Factor w/ 3 levels &quot;Oui&quot;,&quot;Non&quot;,&quot;Ne sait pas&quot;: 1 1 2 2 1 2 1 2 1 2 ...
+##  $ relig        : Factor w/ 6 levels &quot;Pratiquant regulier&quot;,..: 4 4 4 3 1 4 3 4 3 2 ...
+##  $ trav.imp     : Factor w/ 4 levels &quot;Le plus important&quot;,..: 4 NA 2 3 NA 1 NA 4 NA 3 ...
+##  $ trav.satisf  : Factor w/ 3 levels &quot;Satisfaction&quot;,..: 2 NA 3 1 NA 3 NA 2 NA 1 ...
+##  $ hard.rock    : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ lecture.bd   : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ peche.chasse : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 1 1 1 2 2 1 1 ...
+##  $ cuisine      : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 2 1 1 2 1 1 2 2 1 1 ...
+##  $ bricol       : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 1 1 2 1 1 1 2 1 1 ...
+##  $ cinema       : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 2 1 2 1 2 1 1 2 2 ...
+##  $ sport        : Factor w/ 2 levels &quot;Non&quot;,&quot;Oui&quot;: 1 2 2 2 1 2 1 1 1 2 ...
+##  $ heures.tv    : num  0 1 0 2 3 2 2.9 1 2 2 ...</code></pre>
+<p>La première ligne nous informe qu’il s’agit bien d’un tableau de données avec 2000 observations et 20 variables. Vient ensuite la liste des variables. La première se nomme id et est de type entier (int). La seconde se nomme age et est de type numérique. La troisième se nomme sexe, il s’agit d’un facteur (factor).</p>
+<p>Un facteur est une variable pouvant prendre un nombre limité de modalités (levels). Ici notre variable a deux modalités possibles : « Homme » et « Femme ». Ce type de variable est décrit plus en détail dans le chapitre sur la manipulation de données.</p>
+<p><strong>Important</strong></p>
+<p>La fonction str est essentielle à connaître et peut s’appliquer à n’importe quel type d’objet. C’est un excellent moyen de connaître en détail la structure d’un objet. Cependant, les résultats peuvent être parfois trop détaillés et on lui priviligiera dans certains cas la fonction describe que l’on abordera dans les prochains chapitres, cependant moins générique puisque ne s’appliquant qu’à des tableaux de données et à des vecteurs, tandis que str peut s’appliquer à absolument tout objet, y compris des fonctions.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="premier-travail-avec-les-donnees.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(d)</span></code></pre></div>
+<pre><code>## [2000 obs. x 20 variables] tbl_df tbl data.frame
+## 
+## $id: 
+## integer: 1 2 3 4 5 6 7 8 9 10 ...
+## min: 1 - max: 2000 - NAs: 0 (0%) - 2000 unique values
+## 
+## $age: 
+## integer: 28 23 59 34 71 35 60 47 20 28 ...
+## min: 18 - max: 97 - NAs: 0 (0%) - 78 unique values
+## 
+## $sexe: 
+## nominal factor: &quot;Femme&quot; &quot;Femme&quot; &quot;Homme&quot; &quot;Homme&quot; &quot;Femme&quot; &quot;Femme&quot; &quot;Femme&quot; &quot;Homme&quot; &quot;Femme&quot; &quot;Homme&quot; ...
+## 2 levels: Homme | Femme
+## NAs: 0 (0%)
+## 
+## $nivetud: 
+## nominal factor: &quot;Enseignement superieur y compris technique superieur&quot; NA &quot;Derniere annee d&#39;etudes primaires&quot; &quot;Enseignement superieur y compris technique superieur&quot; &quot;Derniere annee d&#39;etudes primaires&quot; &quot;Enseignement technique ou professionnel court&quot; &quot;Derniere annee d&#39;etudes primaires&quot; &quot;Enseignement technique ou professionnel court&quot; NA &quot;Enseignement technique ou professionnel long&quot; ...
+## 8 levels: N&#39;a jamais fait d&#39;etudes | A arrete ses etudes, avant la derniere annee d&#39;etudes primaires | Derniere annee d&#39;etudes primaires | 1er cycle | 2eme cycle | Enseignement technique ou professionnel court | Enseignement technique ou professionnel long | Enseignement superieur y compris technique superieur
+## NAs: 112 (5.6%)
+## 
+## $poids: 
+## numeric: 2634.3982157 9738.3957759 3994.1024587 5731.6615081 4329.0940022 8674.6993828 6165.8034861 12891.640759 7808.8720636 2277.160471 ...
+## min: 78.0783403 - max: 31092.14132 - NAs: 0 (0%) - 1877 unique values
+## 
+## $occup: 
+## nominal factor: &quot;Exerce une profession&quot; &quot;Etudiant, eleve&quot; &quot;Exerce une profession&quot; &quot;Exerce une profession&quot; &quot;Retraite&quot; &quot;Exerce une profession&quot; &quot;Au foyer&quot; &quot;Exerce une profession&quot; &quot;Etudiant, eleve&quot; &quot;Exerce une profession&quot; ...
+## 7 levels: Exerce une profession | Chomeur | Etudiant, eleve | Retraite | Retire des affaires | Au foyer | Autre inactif
+## NAs: 0 (0%)
+## 
+## $qualif: 
+## nominal factor: &quot;Employe&quot; NA &quot;Technicien&quot; &quot;Technicien&quot; &quot;Employe&quot; &quot;Employe&quot; &quot;Ouvrier qualifie&quot; &quot;Ouvrier qualifie&quot; NA &quot;Autre&quot; ...
+## 7 levels: Ouvrier specialise | Ouvrier qualifie | Technicien | Profession intermediaire | Cadre | Employe | Autre
+## NAs: 347 (17.3%)
+## 
+## $freres.soeurs: 
+## integer: 8 2 2 1 0 5 1 5 4 2 ...
+## min: 0 - max: 22 - NAs: 0 (0%) - 19 unique values
+## 
+## $clso: 
+## nominal factor: &quot;Oui&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; ...
+## 3 levels: Oui | Non | Ne sait pas
+## NAs: 0 (0%)
+## 
+## $relig: 
+## nominal factor: &quot;Ni croyance ni appartenance&quot; &quot;Ni croyance ni appartenance&quot; &quot;Ni croyance ni appartenance&quot; &quot;Appartenance sans pratique&quot; &quot;Pratiquant regulier&quot; &quot;Ni croyance ni appartenance&quot; &quot;Appartenance sans pratique&quot; &quot;Ni croyance ni appartenance&quot; &quot;Appartenance sans pratique&quot; &quot;Pratiquant occasionnel&quot; ...
+## 6 levels: Pratiquant regulier | Pratiquant occasionnel | Appartenance sans pratique | Ni croyance ni appartenance | Rejet | NSP ou NVPR
+## NAs: 0 (0%)
+## 
+## $trav.imp: 
+## nominal factor: &quot;Peu important&quot; NA &quot;Aussi important que le reste&quot; &quot;Moins important que le reste&quot; NA &quot;Le plus important&quot; NA &quot;Peu important&quot; NA &quot;Moins important que le reste&quot; ...
+## 4 levels: Le plus important | Aussi important que le reste | Moins important que le reste | Peu important
+## NAs: 952 (47.6%)
+## 
+## $trav.satisf: 
+## nominal factor: &quot;Insatisfaction&quot; NA &quot;Equilibre&quot; &quot;Satisfaction&quot; NA &quot;Equilibre&quot; NA &quot;Insatisfaction&quot; NA &quot;Satisfaction&quot; ...
+## 3 levels: Satisfaction | Insatisfaction | Equilibre
+## NAs: 952 (47.6%)
+## 
+## $hard.rock: 
+## nominal factor: &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $lecture.bd: 
+## nominal factor: &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $peche.chasse: 
+## nominal factor: &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $cuisine: 
+## nominal factor: &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $bricol: 
+## nominal factor: &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $cinema: 
+## nominal factor: &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Oui&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $sport: 
+## nominal factor: &quot;Non&quot; &quot;Oui&quot; &quot;Oui&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Oui&quot; &quot;Non&quot; &quot;Non&quot; &quot;Non&quot; &quot;Oui&quot; ...
+## 2 levels: Non | Oui
+## NAs: 0 (0%)
+## 
+## $heures.tv: 
+## numeric: 0 1 0 2 3 2 2.9 1 2 2 ...
+## min: 0 - max: 12 - NAs: 5 (0.2%) - 30 unique values</code></pre>
+</div>
+<div id="quelques-calculs-simples" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Quelques calculs simples<a href="premier-travail-avec-les-donnees.html#quelques-calculs-simples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Maintenant que nous savons accéder aux variables, effectuons quelques calculs simples comme la moyenne, la médiane, le minimum et le maximum, à l’aide des fonctions mean, median, min et max.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="premier-travail-avec-les-donnees.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 48.157</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="premier-travail-avec-les-donnees.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 48</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="premier-travail-avec-les-donnees.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="premier-travail-avec-les-donnees.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(d<span class="sc">$</span>age)</span></code></pre></div>
+<pre><code>## [1] 97</code></pre>
+<p>::: {#hello .greeting .message style=“color: red;”}
+Au sens strict, il ne s’agit pas d’un véritable âge moyen puisqu’il faudrait ajouter 0,5 à cette valeur calculée, un âge moyen se calculant à partir d’âges exacts et non à partir d’âges révolus.
+On peut aussi très facilement obtenir un tri à plat à l’aide la fonction table :</p>
+<div class="blackbox">
+<div class="center">
+<p><strong>NOTICE!</strong></p>
+</div>
+<p>Thank you for noticing this <strong>new notice</strong>! Your noticing it has
+been noted, and <em>will be reported to the authorities</em>!</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-pool-of-tears.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/priestmuhindo/formation-R/edit/BRANCH/02-premier_travail.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/priestmuhindo/Yformation-R/blob/master/02-premier_travail.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf", "bookdownproj.epub", "bookdownproj.word"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
