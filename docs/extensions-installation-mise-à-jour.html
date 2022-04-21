@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Cours d’Analyse de Données avec R</title>
+  <title>Chapter 3 Extensions (installation, mise à jour) | Cours d’Analyse de Données avec R</title>
   <meta name="description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Cours d’Analyse de Données avec R" />
+  <meta property="og:title" content="Chapter 3 Extensions (installation, mise à jour) | Cours d’Analyse de Données avec R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   <meta name="github-repo" content="priestmuhindo/formation-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Cours d’Analyse de Données avec R" />
+  <meta name="twitter:title" content="Chapter 3 Extensions (installation, mise à jour) | Cours d’Analyse de Données avec R" />
   
   <meta name="twitter:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="extensions-installation-mise-à-jour.html"/>
-
+<link rel="prev" href="premier-travail-avec-les-donnees.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,17 +194,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered hasAnchor">
-<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="extensions-installation-mise-à-jour" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Extensions (installation, mise à jour)<a href="extensions-installation-mise-à-jour.html#extensions-installation-mise-à-jour" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="présentation" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Présentation<a href="extensions-installation-mise-à-jour.html#présentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>L’installation par défaut du logiciel R contient le cœur du programme ainsi qu’un ensemble de fonctions de base fournissant un grand nombre d’outils de traitement de données et d’analyse statistiques.</p>
+<p>R étant un logiciel libre, il bénéficie d’une forte communauté d’utilisateurs qui peuvent librement contribuer au développement du logiciel en lui ajoutant des fonctionnalités supplémentaires. Ces contributions prennent la forme d’extensions (packages en anglais) pouvant être installées par l’utilisateur et fournissant alors diverses fonctionnalités supplémentaires.</p>
+<p>Il existe un très grand nombre d’extensions (plus de 6500 à ce jour), qui sont diffusées par un réseau baptisé CRAN (Comprehensive R Archive Network).</p>
+<p>La liste de toutes les extensions disponibles sur CRAN est disponible ici:<a href="https://cran.r-project.org/web/packages/available_packages_by_date.html">tous les packages</a></p>
+<p>Pour faciliter un peu le repérage des extensions, il existe un ensemble de regroupements thématiques (économétrie, finance, génétique, données spatiales…) baptisés Task views :
+<a href="http://cran.r-project.org/web/views/">recherche des packages par thème</a>
+On y trouve notamment une Task view dédiée aux sciences sociales, listant de nombreuses extensions potentiellement utiles pour les analyses statistiques dans ce champ disciplinaire :
+<a href="http://cran.r-project.org/web/views/SocialSciences.html.">Packages pour les analyses statistiques avec les sciences sociales</a>
+On peut aussi citer le site Awesome R<a href="https://github.com/qinwf/awesome-R">https://github.com/qinwf/awesome-R</a>:qui fournit une liste d’extensions choisies et triées par thématique.</p>
+</div>
+<div id="le-tidyverse" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Le tidyverse<a href="extensions-installation-mise-à-jour.html#le-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hadley Wickham est professeur associé à l’université de Rice et scientifique en chef à Rstudio. Il a développé de nombreux extensions pour R (plus d’une cinquantaine à ce jours) qui, pour la plupart, fonctionne de manière harmonisée entre elles. Par ailleurs, la plupart s’intègre parfaitement avec RStudio.</p>
+<p>Pour certaines tâches, il peut exister plusieurs solutions / extensions différentes pour les réaliser. Dans la mesure où il n’est pas possible d’être exhaustif, nous avons fait le choix dans le cadre de cette initiation de choisir en priorité, lorsque cela est possible, les extensions du tidyverse, en particulier <a href="http://rdrr.io/pkg/haven">haven</a>, <a href="http://rdrr.io/pkg/readr">readr</a> et <a href="http://rdrr.io/pkg/readxl">readxl</a> pour l’import de données, <a href="http://rdrr.io/pkg/dplyr">dplyr</a>, <a href="http://rdrr.io/pkg/dplyr">tidyr</a> ou reshape2 pour la manipulation de données, <a href="">ggplot2</a> pour les graphiques, <a href="http://rdrr.io/pkg/lubridate">lubridate</a> pour la gestion des dates, <a href="http://rdrr.io/pkg/forcats">forcats</a> pour la manipulation des facteurs ou encore <a href="http://rdrr.io/pkg/stringr">stringr</a> pour la manipulation de chaînes de caractères.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="extensions-installation-mise-à-jour.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="premier-travail-avec-les-donnees.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -235,7 +252,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/priestmuhindo/formation-R/edit/BRANCH/07-references.Rmd",
+"link": "https://github.com/priestmuhindo/formation-R/edit/BRANCH/04-packages.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -243,7 +260,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/priestmuhindo/Yformation-R/blob/master/07-references.Rmd",
+"link": "https://github.com/priestmuhindo/Yformation-R/blob/master/04-packages.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub", "bookdownproj.word"],

@@ -204,14 +204,35 @@ min(d$age)
 max(d$age)
 ```
 
-::: {#hello .greeting .message style="color: red;"}
-Au sens strict, il ne s’agit pas d’un véritable âge moyen puisqu’il faudrait ajouter 0,5 à cette valeur calculée, un âge moyen se calculant à partir d’âges exacts et non à partir d’âges révolus.
-On peut aussi très facilement obtenir un tri à plat à l’aide la fonction table :
-
 :::: {.blackbox data-latex=""}
 ::: {.center data-latex=""}
-**NOTICE!**
+**Attention!**
 :::
-Thank you for noticing this **new notice**! Your noticing it has
-been noted, and _will be reported to the authorities_!
+Au sens strict, il ne s’agit pas d'un véritable âge moyen puisqu’il faudrait ajouter 0,5 à cette valeur calculée, un âge moyen se calculant à partir d’âges exacts et non à partir âges révolus.
 ::::
+
+On peut aussi très facilement obtenir un tri à plat à l’aide la fonction **table**
+```{r}
+table(d$qualif)
+```
+
+La fonction **summary**, bien pratique, permet d’avoir une vue résumée d’une variable. Elle s’applique à tout type d’objets (y compris un tableau de données entier) et s’adapte à celui-ci.
+
+```{r}
+summary(d$age)
+```
+
+```{r}
+summary(d$qualif)
+```
+## Nos premiers graphiques
+
+R est très puissant en termes de représentations graphiques, notamment grâce à des extensions dédiées. Pour l'heure contentons-nous d’un premier essai à l’aide de la fonction générique [plot](http://rdrr.io/pkg/graphics/sym/plot).
+```{r}
+plot(d$hard.rock,d$age)
+```
+Il semblerait bien que les amateurs de hard rock soient plus jeunes.
+Nous n’avons qu’entr’aperçu les possibilités de R. Avant de pouvoir nous lancer dans des analyses statisques, il est préférable de revenir un peu aux fondamentaux de R (les types d’objets, la syntaxe, le recodage de variables…) mais aussi comment installer des extensions, importer des données, etc. Nous vous conseillons donc de poursuivre la lecture de la section Prise en main puis de vous lancer à l’assault de la section Statistique introductive.
+
+
+

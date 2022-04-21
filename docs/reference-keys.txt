@@ -17,3 +17,7 @@ inspection-visuelle-des-données
 accéder-aux-variables
 la-fonction-str
 quelques-calculs-simples
+nos-premiers-graphiques
+extensions-installation-mise-à-jour
+présentation
+le-tidyverse

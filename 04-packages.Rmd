@@ -1,0 +1,23 @@
+# Extensions (installation, mise à jour)
+
+## Présentation
+
+L’installation par défaut du logiciel R contient le cœur du programme ainsi qu’un ensemble de fonctions de base fournissant un grand nombre d’outils de traitement de données et d’analyse statistiques.
+
+R étant un logiciel libre, il bénéficie d’une forte communauté d’utilisateurs qui peuvent librement contribuer au développement du logiciel en lui ajoutant des fonctionnalités supplémentaires. Ces contributions prennent la forme d’extensions (packages en anglais) pouvant être installées par l’utilisateur et fournissant alors diverses fonctionnalités supplémentaires.
+
+Il existe un très grand nombre d’extensions (plus de 6500 à ce jour), qui sont diffusées par un réseau baptisé CRAN (Comprehensive R Archive Network).
+
+La liste de toutes les extensions disponibles sur CRAN est disponible ici:[tous les packages](https://cran.r-project.org/web/packages/available_packages_by_date.html)
+
+Pour faciliter un peu le repérage des extensions, il existe un ensemble de regroupements thématiques (économétrie, finance, génétique, données spatiales…) baptisés Task views :
+[recherche des packages par thème](http://cran.r-project.org/web/views/)
+On y trouve notamment une Task view dédiée aux sciences sociales, listant de nombreuses extensions potentiellement utiles pour les analyses statistiques dans ce champ disciplinaire :
+[Packages pour les analyses statistiques avec les sciences sociales](http://cran.r-project.org/web/views/SocialSciences.html.)
+On peut aussi citer le site Awesome R[https://github.com/qinwf/awesome-R](https://github.com/qinwf/awesome-R):qui fournit une liste d’extensions choisies et triées par thématique.
+
+## Le tidyverse
+
+Hadley Wickham est professeur associé à l’université de Rice et scientifique en chef à Rstudio. Il a développé de nombreux extensions pour R (plus d’une cinquantaine à ce jours) qui, pour la plupart, fonctionne de manière harmonisée entre elles. Par ailleurs, la plupart s’intègre parfaitement avec RStudio.
+
+Pour certaines tâches, il peut exister plusieurs solutions / extensions différentes pour les réaliser. Dans la mesure où il n’est pas possible d’être exhaustif, nous avons fait le choix dans le cadre de cette initiation de choisir en priorité, lorsque cela est possible, les extensions du tidyverse, en particulier [haven](http://rdrr.io/pkg/haven), [readr](http://rdrr.io/pkg/readr) et [readxl](http://rdrr.io/pkg/readxl) pour l’import de données, [dplyr](http://rdrr.io/pkg/dplyr), [tidyr](http://rdrr.io/pkg/dplyr) ou reshape2 pour la manipulation de données, [ggplot2]() pour les graphiques, [lubridate](http://rdrr.io/pkg/lubridate) pour la gestion des dates, [forcats](http://rdrr.io/pkg/forcats) pour la manipulation des facteurs ou encore [stringr](http://rdrr.io/pkg/stringr) pour la manipulation de chaînes de caractères.
