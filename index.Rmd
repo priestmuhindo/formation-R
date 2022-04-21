@@ -12,6 +12,7 @@ description: |
 link-citations: yes
 github-repo: priestmuhindo/formation-R
 ---
+
 # Premier contact
 
 Une fois RStudio lancé, vous devriez obtenir une fenêtre similaire à la figure ci-après.

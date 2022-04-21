@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Analyse de Données avec R</title>
-  <meta name="description" content="Analyse de Données avec R" />
+  <title>Cours d’Analyse de Données avec R</title>
+  <meta name="description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Analyse de Données avec R" />
+  <meta property="og:title" content="Cours d’Analyse de Données avec R" />
   <meta property="og:type" content="book" />
   
-  
-  
+  <meta property="og:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  <meta name="github-repo" content="priestmuhindo/formation-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Analyse de Données avec R" />
+  <meta name="twitter:title" content="Cours d’Analyse de Données avec R" />
   
-  
+  <meta name="twitter:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   
 
 <meta name="author" content="Priestley" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="the-pool-of-tears.html"/>
+<link rel="next" href="premier-travail-avec-les-donnees.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -72,9 +136,38 @@
 <li><a href="./">Analyse de Données avec R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Down the rabbit-hole<span></span></a></li>
-<li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears<span></span></a></li>
-<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale<span></span></a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Premier contact<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#linvite-de-commandes"><i class="fa fa-check"></i><b>1.1</b> L’invite de commandes<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#des-objets"><i class="fa fa-check"></i><b>1.2</b> Des objets<span></span></a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objets-simples"><i class="fa fa-check"></i><b>1.2.1</b> Objets simples<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#vecteurs"><i class="fa fa-check"></i><b>1.2.2</b> Vecteurs<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#des-fonctions"><i class="fa fa-check"></i><b>1.3</b> Des fonctions<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#exercice"><i class="fa fa-check"></i><b>1.4</b> Exercice<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#des-arguments"><i class="fa fa-check"></i><b>1.5</b> Des arguments<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#attention"><i class="fa fa-check"></i><b>1.6</b> Attention<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#aide-sur-une-fonction"><i class="fa fa-check"></i><b>1.7</b> Aide sur une fonction<span></span></a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="index.html"><a href="index.html#autocomplétion"><i class="fa fa-check"></i><b>1.7.1</b> Autocomplétion<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html"><i class="fa fa-check"></i><b>2</b> PREMIER TRAVAIL AVEC LES DONNEES<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#regrouper-les-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.1</b> Regrouper les commandes dans des scripts<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#ajouter-des-commentaires"><i class="fa fa-check"></i><b>2.1.1</b> Ajouter des commentaires<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#tableaux-de-données"><i class="fa fa-check"></i><b>2.2</b> Tableaux de données<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#inspection-visuelle-des-données"><i class="fa fa-check"></i><b>2.2.1</b> Inspection visuelle des données<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#accéder-aux-variables"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#la-fonction-str"><i class="fa fa-check"></i><b>2.2.3</b> La fonction <strong>str</strong><span></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#quelques-calculs-simples"><i class="fa fa-check"></i><b>2.2.4</b> Quelques calculs simples<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="references.html#references">References<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -87,7 +180,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analyse de Données avec R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cours d’Analyse de Données avec R</a>
           </h1>
         </div>
 
@@ -96,13 +189,223 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Analyse de Données avec R</h1>
+<h1 class="title">Cours d’Analyse de Données avec R</h1>
 <p class="author"><em>Priestley</em></p>
 <p class="date"><em>2022-04-21</em></p>
 </div>
-<div id="down-the-rabbit-hole" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Down the rabbit-hole<a href="index.html#down-the-rabbit-hole" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="premier-contact" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Premier contact<a href="index.html#premier-contact" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Une fois RStudio lancé, vous devriez obtenir une fenêtre similaire à la figure ci-après.</p>
+<p><img src="images/Capture.PNG" width="100%" />
+L’interface de RStudio est divisée en quatre quadrants :</p>
+<ul>
+<li>le quadrant supérieur gauche est dédié aux différents fichiers de travail (nous y reviendrons dans le chapitre Premier travail avec les données) ;</li>
+<li>le quadrant inférieur gauche correspond à ce que l’on appelle la console, c’est-à-dire à R proprement dit ;</li>
+<li>le quadrant supérieur droit permet de connaître
+la liste des objets en mémoire ou environnement de travail (onglet Environment)
+ainsi que l’historique des commandes saisies dans la console (onglet History) ;</li>
+<li>le quadrant inférieur droit affiche
+la liste des fichiers du répertoire de travail (onglet Files),
+les graphiques réalisés (onglet Plots),
+la liste des extensions disponibles (onglet Packages),
+l’aide en ligne (onglet Help)
+et un Viewer utilisé pour visualiser certains types de graphiques au format web.
+Inutile de tout retenir pour le moment. Nous aborderons chaque outil en temps utile. Pour l’heure, concentrons-nous sur la console, c’est-à-dire le quadrant inférieur gauche</li>
+</ul>
+<div id="linvite-de-commandes" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> L’invite de commandes<a href="index.html#linvite-de-commandes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Au démarrage, la console contient un petit texte de bienvenue ressemblant à peu près à ce qui suit :
+<img src="images/console.PNG" width="100%" />
+suivi d’une ligne commençant par le caractère &gt; et sur laquelle devrait se trouver votre curseur. Cette ligne est appelée l’invite de commande (ou prompt en anglais). Elle signifie que R est disponible et en attente de votre prochaine commande.</p>
+<p>Nous allons tout de suite lui fournir une première commande. Tapez 2 + 3 dans la console et validez avec la touche Entrée.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>En premier lieu, vous pouvez noter la convention typographique utilisée dans ce documents. Les commandes saisies dans la console sont indiquées sur un fond gris et précédé de R&gt;. Le résultat renvoyé par R est quant à lui affiché juste en-dessous sur fond blanc.</p>
+<p>Bien, nous savons désormais que R sait faire les additions à un chiffre. Nous pouvons désormais continuer avec d’autres opérations arithmétiques de base :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8-4</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span><span class="sc">*</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 70</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">3</span><span class="sc">/</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] -0.3</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.3</span></span></code></pre></div>
+<pre><code>## [1] -0.3</code></pre>
+<p>On remarquera que R est anglo-saxon. Les nombres sont donc saisies « à l’anglaise », c’est-à-dire en utilisant le point (.) comme séparateur pour les décimales.
+Une petite astuce très utile lorsque vous tapez des commandes directement dans la console : en utilisant les flèches Haut et Bas du clavier, vous pouvez naviguer dans l’historique des commandes tapées précédemment. Vous pouvez alors facilement réexécuter ou modifier une commande particulière.</p>
+<p>Sous RStudio, l’onglet History du quadrant haut-droite vous permet de consulter l’historique des commandes que vous avez transmises à R.
+<img src="images/history.PNG" width="100%" /></p>
+</div>
+<div id="des-objets" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Des objets<a href="index.html#des-objets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="objets-simples" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Objets simples<a href="index.html#objets-simples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Faire des opérations arithmétiques, c’est bien, mais sans doute pas totalement suffisant. Notamment, on aimerait pouvoir réutiliser le résultat d’une opération sans avoir à le resaisir ou à le copier/coller.</p>
+<p>Comme tout langage de programmation, R permet de faire cela en utilisant des objets. Prenons tout de suite un exemple :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div>
+<p>Que signifie cette commande ? L’opérateur &lt;- est appelé opérateur d’assignation. Il prend une valeur quelconque à droite et la place dans l’objet indiqué à gauche. La commande pourrait donc se lire mettre la valeur 2 dans l’objet nommé x.
+NB:Il existe trois opérateurs d’assignation sous R. Ainsi les trois écritures suivantes sont équivalentes :</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="index.html#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb12-2"><a href="index.html#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb12-3"><a href="index.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="ot">-&gt;</span> x</span></code></pre></div>
+<p>Cependant, pour une meilleure lecture du code, il est conseillé de n’utiliser que &lt;-. Ainsi, l’objet créé est systématiquement affiché à gauche. De plus, le symbole = sert également pour écrire des conditions ou à l’intérieur de fonctions. Il est donc préférable de ne pas l’utiliser pour assigner une valeur (afin d’éviter les confusions).
+On va ensuite pouvoir réutiliser cet objet dans d’autres calculs ou simplement afficher son contenu :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>On peut utiliser autant d’objets qu’on veut. Ceux-ci peuvent contenir des nombres, des chaînes de caractères (indiquées par des guillemets droits doubles ” ou simples ’) et bien d’autres choses encore :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="index.html#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">27</span></span>
+<span id="cb15-2"><a href="index.html#cb15-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb15-3"><a href="index.html#cb15-3" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb15-4"><a href="index.html#cb15-4" aria-hidden="true" tabindex="-1"></a>foo</span></code></pre></div>
+<pre><code>## [1] 37</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb17-2"><a href="index.html#cb17-2" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span> x</span>
+<span id="cb17-3"><a href="index.html#cb17-3" aria-hidden="true" tabindex="-1"></a>foo</span></code></pre></div>
+<pre><code>## [1] &quot;Hello&quot;</code></pre>
+<p>Les noms d’objets peuvent contenir des lettres, des chiffres, les symboles . et _. Ils doivent impérativement commencer par une lettre (jamais par un chiffre). R fait la différence entre les majuscules et les minuscules, ce qui signifie que x et X sont deux objets différents. On évitera également d’utiliser des caractères accentués dans les noms d’objets. Comme les espaces ne sont pas autorisés on pourra les remplacer par un point ou un tiret bas.</p>
+<p>Enfin, signalons que certains noms courts sont réservés par R pour son usage interne et doivent être évités. On citera notamment c, q, t, C, D, F, I, T, max, min…</p>
+<p>Dans RStudio, l’onglet Environment dans le quadrant supérieur droit indique la liste des objets que vous avez précédemment créés, leur type et la taille qu’ils occupent en mémoire.</p>
+<p><img src="images/environement.PNG" width="100%" /></p>
+</div>
+<div id="vecteurs" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Vecteurs<a href="index.html#vecteurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Imaginons maintenant que nous avons interrogé dix personnes au hasard dans la rue et que nous avons relevé pour chacune d’elle sa taille en centimètres. Nous avons donc une série de dix nombres que nous souhaiterions pouvoir réunir de manière à pouvoir travailler sur l’ensemble de nos mesures.</p>
+<p>Un ensemble de données de même nature constituent pour R un vecteur (en anglais vector) et se construit à l’aide d’une fonction nommée c. On l’utilise en lui donnant la liste de nos données, entre parenthèses, séparées par des virgules :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="index.html#cb19-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="dv">192</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span></code></pre></div>
+<p>Ce faisant, nous avons créé un objet nommé tailles et comprenant l’ensemble de nos données, que nous pouvons afficher en saisissant simplement son nom :</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="index.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">144</span>, <span class="dv">168</span>, <span class="dv">179</span>, <span class="dv">175</span>, <span class="dv">182</span>, <span class="dv">188</span>, <span class="dv">167</span>, <span class="dv">152</span>, <span class="dv">163</span>, <span class="dv">145</span>, <span class="dv">176</span>, <span class="dv">155</span>, <span class="dv">156</span>, <span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">155</span>, <span class="dv">157</span>, <span class="dv">185</span>, <span class="dv">155</span>, <span class="dv">169</span>, <span class="dv">124</span>, <span class="dv">178</span>, <span class="dv">182</span>, <span class="dv">195</span>, <span class="dv">151</span>, <span class="dv">185</span>, <span class="dv">159</span>, <span class="dv">156</span>, <span class="dv">184</span>, <span class="dv">172</span>)</span></code></pre></div>
+<pre><code>##  [1] 144 168 179 175 182 188 167 152 163 145 176 155 156 164 167 155 157 185 155
+## [20] 169 124 178 182 195 151 185 159 156 184 172</code></pre>
+<p>On a bien notre suite de trente tailles, mais on peut remarquer la présence de nombres entre crochets au début de chaque ligne ([1], [15] et [29]). En fait ces nombres entre crochets indiquent la position du premier élément de la ligne dans notre vecteur. Ainsi, le 167 en début de deuxième ligne est le 15e élément du vecteur, tandis que le 184 de la troisième ligne est à la 29e position.</p>
+<p>On en déduira d’ailleurs que lorsque l’on fait :</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="index.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>R considère en fait le nombre 2 comme un vecteur à un seul élément.</p>
+<p>On peut appliquer des opérations arithmétiques simples directement sur des vecteurs :</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="index.html#cb24-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="dv">192</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span>
+<span id="cb24-2"><a href="index.html#cb24-2" aria-hidden="true" tabindex="-1"></a>tailles <span class="sc">+</span> <span class="dv">20</span></span></code></pre></div>
+<pre><code>##  [1] 187 212 193 194 192 187 191 205 183 190</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="index.html#cb26-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="sc">/</span> <span class="dv">100</span></span></code></pre></div>
+<pre><code>##  [1] 1.67 1.92 1.73 1.74 1.72 1.67 1.71 1.85 1.63 1.70</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="index.html#cb28-1" aria-hidden="true" tabindex="-1"></a>tailles<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1] 27889 36864 29929 30276 29584 27889 29241 34225 26569 28900</code></pre>
+<p>On peut aussi combiner des vecteurs entre eux. L’exemple suivant calcule l’indice de masse corporelle à partir de la taille et du poids :</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="index.html#cb30-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="dv">192</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span>
+<span id="cb30-2"><a href="index.html#cb30-2" aria-hidden="true" tabindex="-1"></a>poids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">86</span>, <span class="dv">74</span>, <span class="dv">83</span>, <span class="dv">50</span>, <span class="dv">78</span>, <span class="dv">66</span>, <span class="dv">66</span>, <span class="dv">51</span>, <span class="dv">50</span>, <span class="dv">55</span>)</span>
+<span id="cb30-3"><a href="index.html#cb30-3" aria-hidden="true" tabindex="-1"></a>tailles.m <span class="ot">&lt;-</span> tailles <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb30-4"><a href="index.html#cb30-4" aria-hidden="true" tabindex="-1"></a>imc <span class="ot">&lt;-</span> poids <span class="sc">/</span> (tailles.m<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb30-5"><a href="index.html#cb30-5" aria-hidden="true" tabindex="-1"></a>imc</span></code></pre></div>
+<pre><code>##  [1] 30.83653 20.07378 27.73230 16.51473 26.36560 23.66524 22.57105 14.90139
+##  [9] 18.81892 19.03114</code></pre>
+<p>Quand on fait des opérations sur les vecteurs, il faut veiller à soit utiliser un vecteur et un chiffre (dans des opérations du type v * 2 ou v + 10), soit à utiliser des vecteurs de même longueur (dans des opérations du type u + v).</p>
+<p>Si on utilise des vecteurs de longueur différentes, on peut avoir quelques surprises. Quand R effectue une opération avec deux vecteurs de longueurs différentes, il recopie le vecteur le plus court de manière à lui donner la même taille que le plus long, ce qui s’appelle la règle de recyclage (recycling rule). Ainsi, c(1,2) + c(4,5,6,7,8) vaudra l’équivalent de c(1,2,1,2,1) + c(4,5,6,7,8).
+On a vu jusque-là des vecteurs composés de nombres, mais on peut tout à fait créer des vecteurs composés de chaînes de caractères, représentant par exemple les réponses à une question ouverte ou fermée :</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="index.html#cb32-1" aria-hidden="true" tabindex="-1"></a>reponse <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bac+2&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;BEP&quot;</span>)</span>
+<span id="cb32-2"><a href="index.html#cb32-2" aria-hidden="true" tabindex="-1"></a>reponse</span></code></pre></div>
+<pre><code>## [1] &quot;Bac+2&quot; &quot;Bac&quot;   &quot;CAP&quot;   &quot;Bac&quot;   &quot;Bac&quot;   &quot;CAP&quot;   &quot;BEP&quot;</code></pre>
+<p>Enfin, notons que l’on peut accéder à un élément particulier du vecteur en faisant suivre le nom du vecteur de crochets contenant le numéro de l’élément désiré. Par exemple :</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="index.html#cb34-1" aria-hidden="true" tabindex="-1"></a>reponse <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bac+2&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;BEP&quot;</span>)</span>
+<span id="cb34-2"><a href="index.html#cb34-2" aria-hidden="true" tabindex="-1"></a>reponse[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Bac&quot;</code></pre>
+<p>Cette opération s’appelle l’indexation d’un vecteur. Il s’agit ici de sa forme la plus simple, mais il en existe d’autres beaucoup plus complexes. L’indexation des vecteurs et des tableaux dans R est l’un des éléments particulièrement souples et puissants du langage (mais aussi l’un des plus délicats à comprendre et à maîtriser). Nous en reparlerons dans le chapitre Vecteurs, indexation et assignation.</p>
+<p>NB:Sous RStudio, vous avez du remarquer que ce dernier effectue une coloration syntaxique. Lorsque vous tapez une commande, les valeurs numériques sont affichées dans une certaine couleur, les valeurs textuelles dans une autre et les noms des fonctions dans une troisième. De plus, si vous tapez une parenthèse ouvrante, RStudio va créer automatiquement après le curseur la parenthèse fermante correspondante (de même avec les guillements ou les crochets). Si vous placez le curseur juste après une parenthèse fermante, la parenthèse ouvrante correspondante sera surlignée, ce qui sera bien pratique lors de la rédaction de commandes complexes.</p>
+</div>
+</div>
+<div id="des-fonctions" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Des fonctions<a href="index.html#des-fonctions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nous savons désormais faire des opérations simples sur des nombres et des vecteurs, stocker ces données et résultats dans des objets pour les réutiliser par la suite.</p>
+<p>Pour aller un peu plus loin nous allons aborder, après les objets, l’autre concept de base de R, à savoir les fonctions. Une fonction se caractérise de la manière suivante :</p>
+<ul>
+<li>elle a un nom ;</li>
+<li>elle accepte des arguments (qui peuvent avoir un nom ou pas) ;</li>
+<li>elle retourne un résultat et peut effectuer une action comme dessiner un graphique ou lire un fichier.
+En fait rien de bien nouveau puisque nous avons déjà utilisé plusieurs fonctions jusqu’ici, dont la plus visible est la fonction c. Dans la ligne suivante :</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="index.html#cb36-1" aria-hidden="true" tabindex="-1"></a>reponse <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bac+2&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;Bac&quot;</span>, <span class="st">&quot;CAP&quot;</span>, <span class="st">&quot;BEP&quot;</span>)</span></code></pre></div>
+<p>on fait appel à la fonction nommée c, on lui passe en arguments (entre parenthèses et séparées par des virgules) une série de chaînes de caractères et elle retourne comme résultat un vecteur de chaînes de caractères, que nous stockons dans l’objet reponse.</p>
+<p>Prenons tout de suite d’autres exemples de fonctions courantes :</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="index.html#cb37-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="dv">192</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span>
+<span id="cb37-2"><a href="index.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="index.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 173.4</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="index.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] 76.71111</code></pre>
+<p>Ici, la fonction length nous renvoie le nombre d’éléments du vecteur, la fonction mean nous donne la moyenne des éléments du vecteur et fonction var sa variance.
+### Arguments
+Les arguments de la fonction lui sont indiqués entre parenthèses, juste après son nom. En général les premiers arguments passés à la fonction sont des données servant au calcul et les suivants des paramètres influant sur ce calcul. Ceux-ci sont en général transmis sous la forme d’argument nommés.</p>
+<p>Reprenons l’exemple des tailles précédent :</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="index.html#cb43-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="dv">192</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span></code></pre></div>
+<p>Imaginons que le deuxième enquêté n’ait pas voulu nous répondre. Nous avons alors dans notre vecteur une valeur manquante. Celle-ci est symbolisée dans R par le code NA :</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="index.html#cb44-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="cn">NA</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span></code></pre></div>
+<p>Recalculons notre taille moyenne :</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="index.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+</div>
+<div id="exercice" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Exercice<a href="index.html#exercice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Créer un vecteur nommé a qui reprend la liste des individus suivants:lannister,targaryen,baratheon,starck et greyjoy</li>
+</ol>
+<ul>
+<li>Quelle est la longueur du vecteur ?</li>
+<li>Essayez de faire a[1:3]. Qu’obtenez-vous ?<br />
+</li>
+<li>Essayez de faire a[-1]. Qu’obtenez-vous ?</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Considérons le vecteur suivant : x =[1 2 3 4 5],b=[3,3,4]</li>
+</ol>
+<ul>
+<li>Créer ces vecteurs dans R et le stocker dans un objet que l’on appellera x et b ;</li>
+<li>Additionner les vecteurs x et b(en cas d’erreur ,corriger cette erreur)</li>
+<li>Soustraire les vecteurs x et b</li>
+<li>multiplier les deux vecteurs</li>
+<li>ajouter de manière separée aux deux vecteurs ,le nombre 10,</li>
+<li>calculer la longuer de chaque vecteur;</li>
+<li>calculer la somme des éléments de chaque vecteur</li>
+<li>calculer la moyenne des éléments de chaque vecteur</li>
+<li>calculer la variance es éléments de chaque vecteur</li>
+<li>calculer l’ecart-type des éléments de chaque vecteur</li>
+<li>calculer le coefficients de variation de chaque vecteur;</li>
+<li>calculer la médiane de chaque vecteur</li>
+<li>dans les deux vecteurs ,remplacer le deuxième élément par une valeur manquante,puis refaites tous les calculs et notez ce que vous observez</li>
+</ul>
+</div>
+<div id="des-arguments" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Des arguments<a href="index.html#des-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les arguments de la fonction lui sont indiqués entre parenthèses, juste après son nom. En général les premiers arguments passés à la fonction sont des données servant au calcul et les suivants des paramètres influant sur ce calcul. Ceux-ci sont en général transmis sous la forme d’argument nommés.</p>
+<p>Reprenons l’exemple des tailles précédent :</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="index.html#cb47-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="dv">192</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span></code></pre></div>
+<p>Imaginons que le deuxième enquêté n’ait pas voulu nous répondre. Nous avons alors dans notre vecteur une valeur manquante. Celle-ci est symbolisée dans R par le code NA :</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" aria-hidden="true" tabindex="-1"></a>tailles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">167</span>, <span class="cn">NA</span>, <span class="dv">173</span>, <span class="dv">174</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">171</span>, <span class="dv">185</span>, <span class="dv">163</span>, <span class="dv">170</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="index.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tailles)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Et oui, par défaut, R renvoie NA pour un grand nombre de calculs (dont la moyenne) lorsque les données comportent une valeur manquante. On peut cependant modifier ce comportement en fournissant un paramètre supplémentaire à la fonction mean, nommé na.rm :</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="index.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tailles, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 171.3333</code></pre>
+<p>Positionner le paramètre na.rm à TRUE (vrai) indique à la fonction mean de ne pas tenir compte des valeurs manquantes dans le calcul.</p>
+<p>Lorsqu’on passe un argument à une fonction de cette manière, c’est-à-dire sous la forme nom=valeur, on parle d’argument nommé.</p>
+</div>
+<div id="attention" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Attention<a href="index.html#attention" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>NA signifie not available. Cette valeur particulière peut être utilisée pour indiquer une valeur manquante pour tout type de liste (nombres, textes, valeurs logique, etc.).</p>
+</div>
+<div id="aide-sur-une-fonction" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Aide sur une fonction<a href="index.html#aide-sur-une-fonction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Il est très fréquent de ne plus se rappeler quels sont les paramètres d’une fonction ou le type de résultat qu’elle retourne. Dans ce cas on peut très facilement accéder à l’aide décrivant une fonction particulière avec ? ou help. Ainsi, pour obtenir de l’aide sur la fonction mean, on saisira l’une des deux entrées équivalentes suivantes :
+### Note</p>
+<p>L’utilisation du raccourci ? ne fonctionne pas pour certains opérateurs comme <em>. Dans ce cas on pourra utiliser ?’</em>’ ou bien simplement help(“*“).
+Sous RStudio, le fichier d’aide associé apparaitra dans le quadrant inférieur droit sous l’onglet Help.</p>
+<p><img src="images/aide.PNG" width="100%" /></p>
+<p>Cette page décrit (en anglais) la fonction, ses arguments, son résultat, le tout accompagné de diverses notes, références et exemples. Ces pages d’aide contiennent à peu près tout ce que vous pourrez chercher à savoir, mais elles ne sont pas toujours d’une lecture aisée.</p>
+<p>Un autre cas très courant dans R est de ne pas se souvenir ou de ne pas connaître le nom de la fonction effectuant une tâche donnée. Dans ce cas on se reportera aux différentes manières de trouver de l’aide décrites dans le chapitre Où trouver de l’aide ?.</p>
+<div id="autocomplétion" class="section level3 hasAnchor" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> Autocomplétion<a href="index.html#autocomplétion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>RStudio fournit un outil bien pratique appelé autocomplétion. Saisissez les premières lettres d’une fonction, par exemple me puis appuyez sur la touche Tabulation. RStudio affichera la liste des fonctions dont le nom commence par me ainsi qu’un court descriptif de chacune. Un appui sur la touche Entrée provoquera la saisie du nom complet de la fonction choisie.</p>
 
+
+</div>
+</div>
 </div>
             </section>
 
@@ -110,7 +413,7 @@
         </div>
       </div>
 
-<a href="the-pool-of-tears.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="premier-travail-avec-les-donnees.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

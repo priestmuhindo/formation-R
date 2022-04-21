@@ -1,4 +1,14 @@
-the-pool-of-tears
+premier-contact
+linvite-de-commandes
+des-objets
+objets-simples
+vecteurs
+des-fonctions
+exercice
+des-arguments
+attention
+aide-sur-une-fonction
+autocomplétion
 premier-travail-avec-les-donnees
 regrouper-les-commandes-dans-des-scripts
 ajouter-des-commentaires
