@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 3 Extensions (installation, mise à jour) | Cours d’Analyse de Données avec R</title>
+  <title>Chapitre 5 Vecteurs, indexation et assignation | Cours d’Analyse de Données avec R</title>
   <meta name="description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 3 Extensions (installation, mise à jour) | Cours d’Analyse de Données avec R" />
+  <meta property="og:title" content="Chapitre 5 Vecteurs, indexation et assignation | Cours d’Analyse de Données avec R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   <meta name="github-repo" content="priestmuhindo/formation-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 3 Extensions (installation, mise à jour) | Cours d’Analyse de Données avec R" />
+  <meta name="twitter:title" content="Chapitre 5 Vecteurs, indexation et assignation | Cours d’Analyse de Données avec R" />
   
   <meta name="twitter:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="premier-travail-avec-les-donnees.html"/>
-<link rel="next" href="introduction-au-tidyverse.html"/>
+<link rel="prev" href="introduction-au-tidyverse.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -207,57 +207,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="extensions-installation-mise-à-jour" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapitre 3</span> Extensions (installation, mise à jour)<a href="extensions-installation-mise-à-jour.html#extensions-installation-mise-à-jour" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="présentation" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Présentation<a href="extensions-installation-mise-à-jour.html#présentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>L’installation par défaut du logiciel R contient le cœur du programme ainsi qu’un ensemble de fonctions de base fournissant un grand nombre d’outils de traitement de données et d’analyse statistiques.</p>
-<p>R étant un logiciel libre, il bénéficie d’une forte communauté d’utilisateurs qui peuvent librement contribuer au développement du logiciel en lui ajoutant des fonctionnalités supplémentaires. Ces contributions prennent la forme d’extensions (packages en anglais) pouvant être installées par l’utilisateur et fournissant alors diverses fonctionnalités supplémentaires.</p>
-<p>Il existe un très grand nombre d’extensions (plus de 6500 à ce jour), qui sont diffusées par un réseau baptisé CRAN (Comprehensive R Archive Network).</p>
-<p>La liste de toutes les extensions disponibles sur CRAN est disponible ici:<a href="https://cran.r-project.org/web/packages/available_packages_by_date.html">tous les packages</a></p>
-<p>Pour faciliter un peu le repérage des extensions, il existe un ensemble de regroupements thématiques (économétrie, finance, génétique, données spatiales…) baptisés Task views :
-<a href="http://cran.r-project.org/web/views/">recherche des packages par thème</a>
-On y trouve notamment une Task view dédiée aux sciences sociales, listant de nombreuses extensions potentiellement utiles pour les analyses statistiques dans ce champ disciplinaire :
-<a href="http://cran.r-project.org/web/views/SocialSciences.html.">Packages pour les analyses statistiques avec les sciences sociales</a>
-On peut aussi citer le site Awesome R<a href="https://github.com/qinwf/awesome-R">https://github.com/qinwf/awesome-R</a>:qui fournit une liste d’extensions choisies et triées par thématique.</p>
+<div id="vecteurs-indexation-et-assignation" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapitre 5</span> Vecteurs, indexation et assignation<a href="vecteurs-indexation-et-assignation.html#vecteurs-indexation-et-assignation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Nous allons reprendre plusieurs éléments de base du langage R que nous avons déjà abordés mais de manière plus formelle. Une bonne compréhension des bases du langage, bien qu’un peu ardue de prime abord, permet de comprendre le sens des commandes qu’on utilise et de pleinement exploiter la puissance que R offre en matière de manipulation de données.</p>
+<p>Dans ce chapitre, nous reviendrons sur les vecteurs, tandis que les listes et les tableaux de données seront abordés dans un chapitre dédié</p>
+<div id="présentation-des-vecteurs" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Présentation des vecteurs<a href="vecteurs-indexation-et-assignation.html#présentation-des-vecteurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les vecteurs sont l’un des objets de base de R et correspondent à une liste de valeurs. Leurs propriétés fondamentales sont :</p>
+<ul>
+<li>les vecteurs sont unidimensionnels (i.e. ce sont des objets à une seule dimension, à la différence d’une matrice par exemple) ;</li>
+<li>toutes les valeurs d’un vecteur sont d’un seul et même type ;</li>
+<li>les vecteurs ont une longueur qui correspond au nombre de valeurs contenues dans le vecteur</li>
+</ul>
 </div>
-<div id="le-tidyverse" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Le tidyverse<a href="extensions-installation-mise-à-jour.html#le-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Hadley Wickham est professeur associé à l’université de Rice et scientifique en chef à Rstudio. Il a développé de nombreux extensions pour R (plus d’une cinquantaine à ce jours) qui, pour la plupart, fonctionne de manière harmonisée entre elles. Par ailleurs, la plupart s’intègre parfaitement avec RStudio.</p>
-<p>Pour certaines tâches, il peut exister plusieurs solutions / extensions différentes pour les réaliser. Dans la mesure où il n’est pas possible d’être exhaustif, nous avons fait le choix dans le cadre de cette initiation de choisir en priorité, lorsque cela est possible, les extensions du tidyverse, en particulier <a href="http://rdrr.io/pkg/haven">haven</a>, <a href="http://rdrr.io/pkg/readr">readr</a> et <a href="http://rdrr.io/pkg/readxl">readxl</a> pour l’import de données, <a href="http://rdrr.io/pkg/dplyr">dplyr</a>, <a href="http://rdrr.io/pkg/dplyr">tidyr</a> ou reshape2 pour la manipulation de données, <a href="">ggplot2</a> pour les graphiques, <a href="http://rdrr.io/pkg/lubridate">lubridate</a> pour la gestion des dates, <a href="http://rdrr.io/pkg/forcats">forcats</a> pour la manipulation des facteurs ou encore <a href="http://rdrr.io/pkg/stringr">stringr</a> pour la manipulation de chaînes de caractères.</p>
-<p>Il existe par ailleurs une extension homonyme <a href="http://rdrr.io/pkg/tidyverse">tidyverse</a>. L’installation (voir ci-dessous) de cette extension permets l’installation automatique de l’ensemble des autres extensions du tidyverse. Le chargement de cette extension avec la fonction library (voir ci-après) permets de charger en mémoire en une seule opération les principales extensions du tidyverse, à savoir <a href="(http://rdrr.io/pkg/ggplot2)">ggplot2</a>, <a href="http://rdrr.io/pkg/tibble">tibble</a>, <a href="http://rdrr.io/pkg/tidyr">tidyr</a>, <a href="http://rdrr.io/pkg/readr">readr</a>, <a href="http://rdrr.io/pkg/purrr">purrr</a> et <a href="http://rdrr.io/pkg/dplyr">dplyr</a>.</p>
-<p>Nous allons passer au peigne-fin certains packages du <a href="http://rdrr.io/pkg/tidyverse">tidyverse</a>.</p>
-</div>
-<div id="installation-depuis-cran" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Installation depuis CRAN<a href="extensions-installation-mise-à-jour.html#installation-depuis-cran" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>L’installation d’une extension se fait par la fonction <a href="http://rdrr.io/pkg/utils/sym/install.packages">install.packages</a>, à qui on fournit le nom de l’extension. Par exemple, si on souhaite installer l’extension ade4 :</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="extensions-installation-mise-à-jour.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;classlnt&quot;</span>, <span class="at">dep =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>L’option dep=TRUE indique à R de télécharger et d’installer également toutes les extensions dont l’extension choisie dépend pour son fonctionnement.</p>
-<p>Sous RStudio, on pourra également cliquer sur Install dans l’onglet Packages du quadrant inférieur droit comme l’indique cette image :
-<img src="images/packages.PNG" width="70%" />
-Une fois l’extension installée, elle peut être appelée depuis la console ou un fichier script avec la fonction library ou la fonction require :</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="extensions-installation-mise-à-jour.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span></code></pre></div>
-<p>ou</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="extensions-installation-mise-à-jour.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ade4)</span></code></pre></div>
-<p>À partir de là, on peut utiliser les fonctions de l’extension, consulter leur page d’aide en ligne, accéder aux jeux de données qu’elle contient, etc.</p>
-<p>Pour mettre à jour l’ensemble des extensions installées, &lt;dfndata-index=“mise à jour, extensions”&gt; la fonction <a href="http://rdrr.io/pkg/utils/sym/update.packages">update.packages</a> suffit :</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="extensions-installation-mise-à-jour.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">&quot;ade4&quot;</span>)</span></code></pre></div>
-<p>ou
-Sous RStudio, on pourra alternativement cliquer sur Update dans l’onglet Packages du quadrant inférieur droit.
-<img src="images/packages2.PNG" width="75%" />
-Si on souhaite désinstaller une extension précédemment installée, on peut utiliser la fonction <a href="http://rdrr.io/pkg/utils/sym/remove.packages">remove.packages</a> :</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="extensions-installation-mise-à-jour.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">remove.packages</span>(<span class="st">&quot;classlnt&quot;</span>)</span></code></pre></div>
-<div class="redbox">
-<div class="center">
-<p><strong>Important!</strong></p>
-</div>
-<p>Il est important de bien comprendre la différence entre <a href="http://rdrr.io/pkg/utils/sym/install.packages">install.packages</a> et <a href="http://rdrr.io/pkg/utils/sym/install.packages">library</a>. La première va chercher les extensions sur internet et les installe en local sur le disque dur de l’ordinateur. On n’a besoin d’effectuer cette opération qu’une seule fois. La seconde lit les informations de l’extension sur le disque dur et les met à disposition de R. On a besoin de l’exécuter à chaque début de session ou de script.</p>
-</div>
-</div>
-<div id="installation-depuis-github" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Installation depuis GitHub<a href="extensions-installation-mise-à-jour.html#installation-depuis-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Certains <a href="https://github.com/">packages</a> sont développés sur GitHub. Dès lors, la version de développement sur GitHub peut contenir des fonctions qui ne sont pas encore disponibles dans la version stable disponible sur CRAN. Ils arrivent aussi parfois que certains packages ne soient disponibles que sur GitHub.
-L’installation d’un package depuis GitHub est très facile grâce à la fonction <a href="http://rdrr.io/pkg/devtools/sym/install_github">install_github</a> de l’extension <a href="http://rdrr.io/pkg/devtools">devtools</a> (que l’on aura préalablement installée depuis CRAN ;-) )</p>
+<div id="les-principaux-types-de-vecteurs" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Les principaux types de vecteurs<a href="vecteurs-indexation-et-assignation.html#les-principaux-types-de-vecteurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans R, il existe quatre types fondamentaux de vecteurs :</p>
+<p>les nombres réels (c’est-à-dire les nombres décimaux que nous utilisons au quotidien),
+les nombres entiers,
+les chaînes de caractères (qui correspondent à du texte) et
+les valeurs logiques ou valeurs booléennes, à savoir vrai ou faux.
+Pour connaître la nature d’un objet, le plus simple est d’utiliser la fonction <a href="http://rdrr.io/pkg/base/sym/class">class</a>. Par exemple :</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="vecteurs-indexation-et-assignation.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">12.5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>La réponse “numeric” nous indique qu’il s’agit d’un nombre réel. Parfois, vous pourrez rencontrer le terme “double” qui désigne également les nombres réels. Notez que R étant anglophone, la décimale est indiquée avec un point (.) et non avec une virgule comme c’est l’usage en français.</p>
+<p>Essayons avec un nombre entier :</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="vecteurs-indexation-et-assignation.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Sous R, lorsqu’on tape un nombre sans autre précision, il est considéré par défaut comme un nombre réel. Pour indiquer spécifiquement qu’on veut un nombre entier, il faut rajouter le suffixe L :</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="vecteurs-indexation-et-assignation.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(3L)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>Au quotidien, il arrive rarement d’avoir à utiliser ce suffixe, mais il est toujours bon de le connaître au cas où vous le rencontriez dans des manuels ou des exemples de code.</p>
+<p>Pour saisir une chaîne de caractères, on aura recours aux doubles guillemets droits (“) :</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="vecteurs-indexation-et-assignation.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;abc&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Il est également possible d’utiliser des guillemets simples (‘), dès lors qu’on utilise bien le même type de guillemets pour indiquer le début et la fin de la chaîne de caractères (par exemple ’abc’).</p>
+<p>Enfin, les valeurs logiques s’indiquent avec TRUE pour vrai et FALSE pour faux. Il est aussi possible d’utiliser les raccourcis T et F. Attention à bien utiliser les majuscules, R étant sensible à la casse.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="vecteurs-indexation-et-assignation.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Exemple</th>
+<th align="left">Classe R</th>
+<th align="left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">integer</td>
+<td align="left">nombre entier</td>
+</tr>
+<tr class="even">
+<td align="left">3.14</td>
+<td align="left">numeric</td>
+<td align="left">nombre réel</td>
+</tr>
+<tr class="odd">
+<td align="left">abcd</td>
+<td align="left">character</td>
+<td align="left">chaîne de caractères</td>
+</tr>
+<tr class="even">
+<td align="left">TRUE</td>
+<td align="left">logical</td>
+<td align="left">booléenne</td>
+</tr>
+</tbody>
+</table>
+<p>En plus des types de base, il existe de nombreuses autres classes de vecteurs dans R que nous aborderons ultérieurement dans d’autres chapitres. Les plus courantes sont :</p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="92%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Classe R</th>
+<th align="left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor</td>
+<td align="left"><a href="https://larmarange.github.io/analyse-R/facteurs-et-vecteurs-labellises.html#facteurs">facteur</a></td>
+</tr>
+<tr class="even">
+<td align="left">labelled</td>
+<td align="left"><a href="https://larmarange.github.io/analyse-R/facteurs-et-vecteurs-labellises.html#labelled">vecteur labellisé</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Date</td>
+<td align="left"><a href="https://larmarange.github.io/analyse-R/gestion-des-dates.html">date</a></td>
+</tr>
+<tr class="even">
+<td align="left">POSIXct</td>
+<td align="left"><a href="https://larmarange.github.io/analyse-R/gestion-des-dates.html">date et heure</a></td>
+</tr>
+</tbody>
+</table>
+<p>En plus des</p>
 
 </div>
 </div>
@@ -266,8 +316,8 @@ L’installation d’un package depuis GitHub est très facile grâce à la fonc
           </div>
         </div>
       </div>
-<a href="premier-travail-avec-les-donnees.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction-au-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-au-tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -298,7 +348,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/priestmuhindo/formation-R/edit/BRANCH/04-packages.Rmd",
+"link": "https://github.com/priestmuhindo/formation-R/edit/BRANCH/06-vecteurs.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -306,7 +356,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/priestmuhindo/Yformation-R/blob/master/04-packages.Rmd",
+"link": "https://github.com/priestmuhindo/Yformation-R/blob/master/06-vecteurs.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub", "bookdownproj.word"],

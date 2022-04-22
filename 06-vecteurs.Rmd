@@ -1,0 +1,60 @@
+# Vecteurs, indexation et assignation
+
+Nous allons reprendre plusieurs éléments de base du langage R que nous avons déjà abordés mais de manière plus formelle. Une bonne compréhension des bases du langage, bien qu’un peu ardue de prime abord, permet de comprendre le sens des commandes qu’on utilise et de pleinement exploiter la puissance que R offre en matière de manipulation de données.
+
+Dans ce chapitre, nous reviendrons sur les vecteurs, tandis que les listes et les tableaux de données seront abordés dans un chapitre dédié
+
+## Présentation des vecteurs
+
+Les vecteurs sont l’un des objets de base de R et correspondent à une liste de valeurs. Leurs propriétés fondamentales sont :
+
+- les vecteurs sont unidimensionnels (i.e. ce sont des objets à une seule dimension, à la différence d’une matrice par exemple) ;
+- toutes les valeurs d’un vecteur sont d’un seul et même type ;
+- les vecteurs ont une longueur qui correspond au nombre de valeurs contenues dans le vecteur
+
+## Les principaux types de vecteurs
+
+Dans R, il existe quatre types fondamentaux de vecteurs :
+
+les nombres réels (c’est-à-dire les nombres décimaux que nous utilisons au quotidien),
+les nombres entiers,
+les chaînes de caractères (qui correspondent à du texte) et
+les valeurs logiques ou valeurs booléennes, à savoir vrai ou faux.
+Pour connaître la nature d’un objet, le plus simple est d’utiliser la fonction [class](http://rdrr.io/pkg/base/sym/class). Par exemple :
+```{r}
+class(12.5)
+```
+
+La réponse "numeric" nous indique qu’il s’agit d’un nombre réel. Parfois, vous pourrez rencontrer le terme "double" qui désigne également les nombres réels. Notez que R étant anglophone, la décimale est indiquée avec un point (.) et non avec une virgule comme c’est l’usage en français.
+
+Essayons avec un nombre entier :
+```{r}
+class(3)
+```
+Sous R, lorsqu’on tape un nombre sans autre précision, il est considéré par défaut comme un nombre réel. Pour indiquer spécifiquement qu’on veut un nombre entier, il faut rajouter le suffixe L :
+```{r}
+class(3L)
+```
+Au quotidien, il arrive rarement d’avoir à utiliser ce suffixe, mais il est toujours bon de le connaître au cas où vous le rencontriez dans des manuels ou des exemples de code.
+
+Pour saisir une chaîne de caractères, on aura recours aux doubles guillemets droits (") :
+```{r}
+class("abc")
+```
+Il est également possible d’utiliser des guillemets simples ('), dès lors qu’on utilise bien le même type de guillemets pour indiquer le début et la fin de la chaîne de caractères (par exemple 'abc').
+
+Enfin, les valeurs logiques s’indiquent avec TRUE pour vrai et FALSE pour faux. Il est aussi possible d’utiliser les raccourcis T et F. Attention à bien utiliser les majuscules, R étant sensible à la casse.
+```{r}
+class(TRUE)
+```
+```{r,echo=FALSE}
+library(tidyverse)
+tibble::tibble(Exemple=c(5L,3.14,"abcd","TRUE"),`Classe R`=c("integer","numeric","character","logical"),type=c("nombre entier","nombre réel","chaîne de caractères","booléenne")) %>% knitr::kable()
+```
+En plus des types de base, il existe de nombreuses autres classes de vecteurs dans R que nous aborderons ultérieurement dans d’autres chapitres. Les plus courantes sont :
+
+```{r,echo=FALSE}
+library(tidyverse)
+tibble::tibble(`Classe R`=c("factor","labelled","Date","POSIXct"),type=c("[facteur](https://larmarange.github.io/analyse-R/facteurs-et-vecteurs-labellises.html#facteurs)","[vecteur labellisé](https://larmarange.github.io/analyse-R/facteurs-et-vecteurs-labellises.html#labelled)","[date](https://larmarange.github.io/analyse-R/gestion-des-dates.html)","[date et heure](https://larmarange.github.io/analyse-R/gestion-des-dates.html)")) %>% knitr::kable()
+```
+En plus des 

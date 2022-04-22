@@ -21,3 +21,12 @@ nos-premiers-graphiques
 extensions-installation-mise-à-jour
 présentation
 le-tidyverse
+installation-depuis-cran
+installation-depuis-github
+introduction-au-tidyverse
+extensions
+tidy-data
+tibbles
+vecteurs-indexation-et-assignation
+présentation-des-vecteurs
+les-principaux-types-de-vecteurs

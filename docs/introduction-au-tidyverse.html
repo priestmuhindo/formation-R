@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 4 Introduction au tidyverse | Cours d’Analyse de Données avec R</title>
+  <meta name="description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 4 Introduction au tidyverse | Cours d’Analyse de Données avec R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  <meta name="github-repo" content="priestmuhindo/formation-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 4 Introduction au tidyverse | Cours d’Analyse de Données avec R" />
+  
+  <meta name="twitter:description" content="Ce bouquin est une initiation à la programmation avec R surtout axée sur la partie analyse de données." />
+  
+
+<meta name="author" content="Priestley" />
+
+
+<meta name="date" content="2022-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="extensions-installation-mise-à-jour.html"/>
+<link rel="next" href="vecteurs-indexation-et-assignation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Analyse de Données avec R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Premier contact<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#linvite-de-commandes"><i class="fa fa-check"></i><b>1.1</b> L’invite de commandes<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#des-objets"><i class="fa fa-check"></i><b>1.2</b> Des objets<span></span></a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objets-simples"><i class="fa fa-check"></i><b>1.2.1</b> Objets simples<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#vecteurs"><i class="fa fa-check"></i><b>1.2.2</b> Vecteurs<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#des-fonctions"><i class="fa fa-check"></i><b>1.3</b> Des fonctions<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#exercice"><i class="fa fa-check"></i><b>1.4</b> Exercice<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#des-arguments"><i class="fa fa-check"></i><b>1.5</b> Des arguments<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#attention"><i class="fa fa-check"></i><b>1.6</b> Attention<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#aide-sur-une-fonction"><i class="fa fa-check"></i><b>1.7</b> Aide sur une fonction<span></span></a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="index.html"><a href="index.html#autocomplétion"><i class="fa fa-check"></i><b>1.7.1</b> Autocomplétion<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html"><i class="fa fa-check"></i><b>2</b> PREMIER TRAVAIL AVEC LES DONNEES<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#regrouper-les-commandes-dans-des-scripts"><i class="fa fa-check"></i><b>2.1</b> Regrouper les commandes dans des scripts<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#ajouter-des-commentaires"><i class="fa fa-check"></i><b>2.1.1</b> Ajouter des commentaires<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#tableaux-de-données"><i class="fa fa-check"></i><b>2.2</b> Tableaux de données<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#inspection-visuelle-des-données"><i class="fa fa-check"></i><b>2.2.1</b> Inspection visuelle des données<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#accéder-aux-variables"><i class="fa fa-check"></i><b>2.2.2</b> Accéder aux variables<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#la-fonction-str"><i class="fa fa-check"></i><b>2.2.3</b> La fonction <strong>str</strong><span></span></a></li>
+<li class="chapter" data-level="2.2.4" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#quelques-calculs-simples"><i class="fa fa-check"></i><b>2.2.4</b> Quelques calculs simples<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="premier-travail-avec-les-donnees.html"><a href="premier-travail-avec-les-donnees.html#nos-premiers-graphiques"><i class="fa fa-check"></i><b>2.3</b> Nos premiers graphiques<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="extensions-installation-mise-à-jour.html"><a href="extensions-installation-mise-à-jour.html"><i class="fa fa-check"></i><b>3</b> Extensions (installation, mise à jour)<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="extensions-installation-mise-à-jour.html"><a href="extensions-installation-mise-à-jour.html#présentation"><i class="fa fa-check"></i><b>3.1</b> Présentation<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="extensions-installation-mise-à-jour.html"><a href="extensions-installation-mise-à-jour.html#le-tidyverse"><i class="fa fa-check"></i><b>3.2</b> Le tidyverse<span></span></a></li>
+<li class="chapter" data-level="3.3" data-path="extensions-installation-mise-à-jour.html"><a href="extensions-installation-mise-à-jour.html#installation-depuis-cran"><i class="fa fa-check"></i><b>3.3</b> Installation depuis CRAN<span></span></a></li>
+<li class="chapter" data-level="3.4" data-path="extensions-installation-mise-à-jour.html"><a href="extensions-installation-mise-à-jour.html#installation-depuis-github"><i class="fa fa-check"></i><b>3.4</b> Installation depuis GitHub<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-au-tidyverse.html"><a href="introduction-au-tidyverse.html"><i class="fa fa-check"></i><b>4</b> Introduction au tidyverse<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introduction-au-tidyverse.html"><a href="introduction-au-tidyverse.html#extensions"><i class="fa fa-check"></i><b>4.1</b> Extensions<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-au-tidyverse.html"><a href="introduction-au-tidyverse.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> tidy data<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-au-tidyverse.html"><a href="introduction-au-tidyverse.html#tibbles"><i class="fa fa-check"></i><b>4.3</b> tibbles<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vecteurs-indexation-et-assignation.html"><a href="vecteurs-indexation-et-assignation.html"><i class="fa fa-check"></i><b>5</b> Vecteurs, indexation et assignation<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vecteurs-indexation-et-assignation.html"><a href="vecteurs-indexation-et-assignation.html#présentation-des-vecteurs"><i class="fa fa-check"></i><b>5.1</b> Présentation des vecteurs<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="vecteurs-indexation-et-assignation.html"><a href="vecteurs-indexation-et-assignation.html#les-principaux-types-de-vecteurs"><i class="fa fa-check"></i><b>5.2</b> Les principaux types de vecteurs<span></span></a></li>
+</ul></li>
+<li><a href="references.html#references">References<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cours d’Analyse de Données avec R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-au-tidyverse" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapitre 4</span> Introduction au tidyverse<a href="introduction-au-tidyverse.html#introduction-au-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="extensions" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Extensions<a href="introduction-au-tidyverse.html#extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le terme tidyverse est une contraction de tidy (qu’on pourrait traduire par “bien rangé”) et de universe. Il s’agit en fait d’une collection d’extensions conçues pour travailler ensemble et basées sur une philosophie commune.</p>
+<p>Elles abordent un très grand nombre d’opérations courantes dans R (la liste n’est pas exhaustive) :
+- visualisation
+- manipulation des tableaux de données
+- import/export de données
+- manipulation de variables
+- extraction de données du Web
+- programmation</p>
+<p>Un des objectifs de ces extensions est de fournir des fonctions avec une syntaxe cohérente, qui fonctionnent bien ensemble, et qui retournent des résultats prévisibles. Elles sont en grande partie issues du travail <a href="http://hadley.nz/">d’Hadley Wickham</a>, qui travaille désormais pour <a href="https://www.rstudio.com/">RStudio</a>
+## Installation</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="introduction-au-tidyverse.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>Cette commande va en fait installer plusieurs extensions qui constituent le coeur du tidyverse, à savoir :
+- <a href="http://rdrr.io/pkg/ggplot2">ggplot2</a> (visualisation)
+- <a href="http://rdrr.io/pkg/dplyr">dplyr</a> (manipulation des données)
+- <a href="http://rdrr.io/pkg/tidyr">tidyr</a> (remise en forme des données)
+- <a href="http://rdrr.io/pkg/purrr">purrr</a> (programmation)
+- <a href="http://rdrr.io/pkg/readr">readr</a> (importation de données)
+- <a href="http://rdrr.io/pkg/tibble">tibble</a> (tableaux de données)
+- <a href="http://rdrr.io/pkg/forcats">forcats</a> (variables qualitatives)
+- <a href="http://rdrr.io/pkg/stringr">stringr</a> (chaînes de caractères)
+De la même manière, charger l’extension avec :</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introduction-au-tidyverse.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Chargera l’ensemble des extensions précédentes.</p>
+<p>Il existe d’autres extensions qui font partie du <a href="http://rdrr.io/pkg/tidyverse">tidyverse</a> mais qui doivent être chargées explicitement, comme par exemple <a href="http://rdrr.io/pkg/readxl">readxl</a> (pour l’importation de données depuis des fichiers Excel).</p>
+<p>La liste complète des extensions se trouve sur <a href="https://www.tidyverse.org/packages/">le site officiel du tidyverse</a></p>
+</div>
+<div id="tidy-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> tidy data<a href="introduction-au-tidyverse.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le <a href="http://rdrr.io/pkg/tidyverse">tidyverse</a> est en partie fondé sur le concept de tidy data, développé à l’origine par Hadley Wickham dans <a href="https://www.jstatsoft.org/article/view/v059i10">un article de 2014</a>du Journal of Statistical Software.
+Il s’agit d’un modèle d’organisation des données qui vise à faciliter le travail souvent long et fastidieux de nettoyage et de préparation préalable à la mise en oeuvre de méthodes d’analyse.</p>
+<p>Les principes d’un jeu de données tidy sont les suivants :</p>
+<ol style="list-style-type: decimal">
+<li>chaque variable est une colonne</li>
+<li>chaque observation est une ligne</li>
+<li>chaque type d’observation est dans une table différente</li>
+</ol>
+<p>Un chapitre entier sera dédié à tidyr comment définir et rendre des données tidy avec l’extension tidyr.</p>
+<p>Les extensions du <a href="http://rdrr.io/pkg/tidyverse">tidyverse</a>, notamment <a href="http://rdrr.io/pkg/ggplot2">ggplot2</a> et <a href="http://rdrr.io/pkg/dplyr">dplyr</a>, sont prévues pour fonctionner avec des données tidy</p>
+</div>
+<div id="tibbles" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> tibbles<a href="introduction-au-tidyverse.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Une autre particularité du tidyverse est que ces extensions travaillent avec des tableaux de données au format <a href="http://rdrr.io/pkg/tibble/sym/tibble">tibble</a>, qui est une évolution plus moderne du classique data frame du R de base. Ce format est fourni est géré par l’extension du même nom <a href="http://rdrr.io/pkg/tibble/sym/tibble">(tibble)</a>, qui fait partie du coeur du tidyverse. La plupart des fonctions des extensions du tidyverse acceptent des data frames en entrée, mais retournent un objet de classe tibble.</p>
+<p>Contrairement aux data frames, les tibbles :</p>
+<ul>
+<li>n’ont pas de noms de lignes (rownames)</li>
+<li>autorisent des noms de colonnes invalides pour les data frames (espaces, caractères spéciaux, nombres…)</li>
+<li>s’affichent plus intelligemment que les data frames : seules les premières lignes sont affichées, ainsi que quelques informations supplémentaires utiles (dimensions, types des colonnes…)</li>
+<li>ne font pas de partial matching sur les noms de colonnes</li>
+<li>affichent un avertissement si on essaie d’accéder à une colonne qui n’existe pas
+Pour autant, les tibbles restent compatibles avec les data frames. On peut ainsi facilement convertir un data frame en tibble avec as_tibble :</li>
+</ul>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="introduction-au-tidyverse.html#cb105-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">as.tibble</span>(<span class="fu">rownames_to_column</span>(mtcars))</span></code></pre></div>
+<pre><code>## Warning: `as.tibble()` was deprecated in tibble 2.0.0.
+## Please use `as_tibble()` instead.
+## The signature and semantics have changed, see `?as_tibble`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="introduction-au-tidyverse.html#cb107-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## # A tibble: 32 x 12
+##    rowname       mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 Mazda RX4    21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2 Mazda RX4 ~  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3 Datsun 710   22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4 Hornet 4 D~  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5 Hornet Spo~  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6 Valiant      18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8 Merc 240D    24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9 Merc 230     22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10 Merc 280     19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # ... with 22 more rows</code></pre>
+<p>À l’inverse, on peut à tout moment convertir un tibble en data frame avec as.data.frame :</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="introduction-au-tidyverse.html#cb109-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">as_data_frame</span>(d)</span></code></pre></div>
+<pre><code>## Warning: `as_data_frame()` was deprecated in tibble 2.0.0.
+## Please use `as_tibble()` instead.
+## The signature and semantics have changed, see `?as_tibble`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<p>Là encore, on peut convertir la colonne rowname en “vrais” rownames avec column_to_rownames</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="introduction-au-tidyverse.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">column_to_rownames</span>(d)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>Là encore, on peut convertir la colonne rowname en “vrais” rownames avec column_to_rownames :</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="introduction-au-tidyverse.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">column_to_rownames</span>(<span class="fu">as.data.frame</span>(d))</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="extensions-installation-mise-à-jour.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vecteurs-indexation-et-assignation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/priestmuhindo/formation-R/edit/BRANCH/05-intro_tidyverse.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/priestmuhindo/Yformation-R/blob/master/05-intro_tidyverse.Rmd",
+"text": null
+},
+"download": ["bookdownproj.pdf", "bookdownproj.epub", "bookdownproj.word"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
